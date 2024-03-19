@@ -33,19 +33,24 @@ final class Stacks {
         // Add stack
         final BasicClass basicStack = new BasicClass();
 
-        // Scanners
-        final Scanner input = new Scanner(System.in);
+        final int maxChoices = 3;
+        for (int counter = 0; counter < maxChoices; counter++) {
+            // Add scanner
+            final Scanner input = new Scanner(System.in);
 
-        // Enter array loop
-        System.out.print("Enter a string: ");
-        final String string = input.nextLine();
-        basicStack.push(string);
+            // Enter array loop
+            System.out.print("Enter a string: ");
+            final String string = input.nextLine();
+            basicStack.push(string);
+            if (counter == maxChoices) {
+                // Close scanner
+                input.close();
+            }
+        }
 
         // Show stack
-        basicStack.showStack();
-
-        // Close scanners
-        input.close();
+        final String stackValues = basicStack.showStack();
+        System.out.println(stackValues);
 
         // Show the program as done
         System.out.println("\nDone.");

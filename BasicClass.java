@@ -6,8 +6,6 @@
 * @since   2024-03-08
 */
 
-import java.util.Arrays;
-
 /**
  * This is the class.
 */
@@ -27,7 +25,7 @@ public class BasicClass {
     public void push(String string) {
         final String[] newArray = new String[this.array.length + 1];
 
-        for (int counter = 0; counter > this.array.length; counter++) {
+        for (int counter = 0; counter < this.array.length; counter++) {
             newArray[counter] = this.array[counter];
         }
 
@@ -37,8 +35,16 @@ public class BasicClass {
 
     /**
      * Prints the array to the console.
+     *
+     * @return the values of the array formatted
     */
-    public void showStack() {
-        System.out.println(Arrays.toString(this.array));
+    public String showStack() {
+        String stackValues = this.array[0];
+
+        for (int counter = 1; counter < this.array.length; counter++) {
+            stackValues = stackValues + ", " + this.array[counter];
+        }
+
+        return stackValues;
     }
 }
